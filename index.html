@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>Setting the Viewport</h2>
+
+<div class="dropzone"></div>
+
+<script>
+    Dropzone.autoDiscover = false;
+$(function () {
+    //Dropzone class
+    var myDropzone = new Dropzone(".dropzone", {
+        url: "upload.php",
+        paramName: "file",
+        maxFilesize: 2,
+        maxFiles: 10,
+        acceptedFiles: "image/*,application/pdf",
+        autoProcessQueue: TransformStreamDefaultController
+        /*success: function(file, response){
+                            //Here you can get your response. ,"
+                            console.log(response);
+                            },*/,error: function(file,  response){
+                                alert(response)
+                            } 
+    });
+});
+</script>
+
+</body>
+</html>
+
